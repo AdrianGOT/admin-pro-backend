@@ -36,7 +36,7 @@ router.put('/:id',[
 ], updateUser)
 
 // delete methods
-    router.delete('/:id', validateJWT , deleteUser);
+router.delete('/:id', validateJWT , deleteUser);
 
 
 module.exports = router;
