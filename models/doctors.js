@@ -1,7 +1,6 @@
-const {model, Schema} = require('mongoose');
+const { model, Schema } = require('mongoose');
 
-
-const HospitalSchema = Schema({
+const DoctorSchema = Schema({
     name: {
         type: String,
         required: true,
@@ -17,14 +16,17 @@ const HospitalSchema = Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'
+    },
+    hospital: {
+        type: Schema.Types.ObjectId,
+        ref: 'Hospital'
     }
+})
 
-});
-
-HospitalSchema.method('toJSON', function(){
-    const  { __v, _id , password, ...object} = this.toObject();
+DoctorSchema.method('toJSON', function(){
+    const  { __v, _id , ...object} = this.toObject();
     object.id = _id;
     return object;
 })
 
-module.exports = model('Hospital', HospitalSchema);
+module.exports = model('Doctor', DoctorSchema);
