@@ -15,8 +15,9 @@ const HospitalSchema = Schema({
         default: true,
     },
     user: {
+        require: true,
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'Users'
     }
 
 });

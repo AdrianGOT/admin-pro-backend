@@ -1,7 +1,10 @@
 // Express
 const { Router } = require('express');
+const { check } = require('express-validator')
 
 // Middlewares
+const { validateJWT } = require('../middleware/validate-jwt');
+const { checkField } = require('../middleware/check-field')
 
 // Controllers
 const { 
@@ -9,16 +12,26 @@ const {
     updateDoctor,
     deleteDoctor,
     createtDoctor,
-} = require('../controllers/doctor')
+} = require('../controllers/doctor');
 
 const router = Router();
 
 // GET methods
-router.get('/', getDoctors);
+router.get('/',
+    validateJWT
+ ,getDoctors);
+
 // POST methods
-router.post('/',createtDoctor);
+router.post('/',[
+    validateJWT,
+    check('name', 'The doctor name is required').not().isEmpty(),
+    check('Hospital', 'The hospital id should be valid').isMongoId(),
+    checkField
+],createtDoctor);
+
 // PUT methods
 router.put('/:id',updateDoctor);
+
 // DELETE methods
 router.delete('/:id',deleteDoctor);
 
