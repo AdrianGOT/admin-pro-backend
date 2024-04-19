@@ -20,6 +20,7 @@ app.use('/api/users', require('./routes/user'));
 app.use('/api/hospital', require('./routes/hospital'));
 app.use('/api/doctor', require('./routes/doctor'));
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/todo', require('./routes/todo'));
 
 // app.get( '/' , (req, res)=> {
 //     res.status(200).json({

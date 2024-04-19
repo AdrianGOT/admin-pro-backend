@@ -4,7 +4,7 @@ const { check } = require('express-validator')
 
 // Middlewares
 const { validateJWT } = require('../middleware/validate-jwt');
-const { checkField } = require('../middleware/check-field')
+const { checkField } = require('../middleware/check-field');
 
 // Controllers
 const { 
