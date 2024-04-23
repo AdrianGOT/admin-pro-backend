@@ -21,6 +21,7 @@ app.use('/api/hospital', require('./routes/hospital'));
 app.use('/api/doctor', require('./routes/doctor'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/todo', require('./routes/todo'));
+app.use('/api/upload', require('./routes/upload'));
 
 // app.get( '/' , (req, res)=> {
 //     res.status(200).json({

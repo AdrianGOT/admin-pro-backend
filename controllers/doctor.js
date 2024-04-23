@@ -4,8 +4,8 @@ const Doctor = require('../models/doctors');
 const getDoctors = async( req, res = response ) => {
 
     const doctors = await Doctor.find()
-                        .porpuse('User', 'name email')
-                        .porpuse('Hospital', 'name');    
+                        .populate('user', 'name email')
+                        .populate('hospital', 'name');    
     res.json({
         ok: true,
         doctors
@@ -13,9 +13,11 @@ const getDoctors = async( req, res = response ) => {
 }
 
 const createtDoctor = async( req, res = response ) => {
+    const {hospital, user} = req.body;
 
     const newDoctor = new Doctor({
-        user: req.id,
+        user,
+        hospital,
         ...req.body
     })
 

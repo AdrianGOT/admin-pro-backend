@@ -25,7 +25,7 @@ router.get('/',
 router.post('/',[
     validateJWT,
     check('name', 'The doctor name is required').not().isEmpty(),
-    check('Hospital', 'The hospital id should be valid').isMongoId(),
+    check('Hospital', 'The hospital id should be valid').not().isMongoId(),
     checkField
 ],createtDoctor);
 

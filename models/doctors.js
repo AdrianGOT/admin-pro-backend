@@ -20,8 +20,8 @@ const DoctorSchema = Schema({
     },
     hospital: {
         type: Schema.Types.ObjectId,
-        ref: 'Hospitals',
         require: true,
+        ref: 'Hospital',
     }
 })
 
