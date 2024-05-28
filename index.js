@@ -6,6 +6,7 @@ const cors = require('cors');
 const app = express();
 
 app.use( cors() ); // Cors
+app.use(express.static('public')); // Middelware to open google authentication when the app start
 app.use( express.json() ); // read and parse of the body
 
 // user => AdrianGOT
