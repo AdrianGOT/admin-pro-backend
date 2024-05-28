@@ -30,13 +30,15 @@ router.post('/', [
 
 // PUT methods
 router.put('/:id',[
-    validateJWT
+    validateJWT,
+    check('name', 'The hospital name is required').not().isEmpty(),
+    checkField
 ], updateHospital)
 
 // delete methods
-    router.delete('/:id',
+router.delete('/:id',
     validateJWT,
-    deleteHospital);
+deleteHospital);
 
 
 module.exports = router;
